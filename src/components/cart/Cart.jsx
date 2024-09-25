@@ -22,7 +22,7 @@ const Cart = ({ cartItems, updateCart, removeCart }) => {
     };
 
     return (
-        <div className="container mt-5">
+        <div className="container mt-5 mb-5">
             <h2>Your Cart</h2>
             {cartItems.length === 0 ? (
                 <p>Your cart is empty.</p>

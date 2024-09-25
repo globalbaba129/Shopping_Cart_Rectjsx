@@ -1,0 +1,12 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+footer {
+    /* Keep the footer at the bottom */
+    bottom: 0;
+    left: 0;
+    right: 0;
+/* Ensures the footer is above other content */
+}

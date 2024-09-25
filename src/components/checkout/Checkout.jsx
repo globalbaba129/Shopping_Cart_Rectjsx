@@ -7,7 +7,7 @@ const Checkout = ({ cartItems }) => {
     };
 
     return (
-        <div className="container mt-5">
+        <div className="container mt-5 mb-5">
             <h2>Checkout</h2>
             {cartItems.length === 0 ? (
                 <p>Your cart is empty. Please add items to your cart before checking out.</p>

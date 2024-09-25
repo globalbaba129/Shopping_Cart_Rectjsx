@@ -1,4 +1,6 @@
 import Cart from "./components/Cart/Cart";
+import Checkout from "./components/checkout/Checkout";
+import Footer from "./components/fotter/footer";
 import HomeIndex from "./components/Home/Home";
 import Navbar from "./components/navbar/Navbar";
 import ProductDetail from "./components/Home/ProductDetail";
@@ -7,9 +9,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   const [cart, setCart] = useState([]);
-
-
-
 
   useEffect(() => {
     try {
@@ -32,7 +31,6 @@ function App() {
     }
   }, [cart]);
 
-
   const addToCart = (product) => {
     const productIndex = cart.findIndex((item) => item.id === product.id);
     if (productIndex !== -1) {
@@ -54,14 +52,20 @@ function App() {
   };
 
   return (
-    <BrowserRouter>
-      <Navbar cartCount={cart.length} />
-      <Routes>
-        <Route path="/" element={<HomeIndex addToCart={addToCart} />} />
-        <Route path="/cart" element={<Cart cartItems={cart} updateCart={updateCart} removeCart={removeCart} />} />
-        <Route path="/product/:id" element={<ProductDetail addToCart={addToCart} />} />
-      </Routes>
-    </BrowserRouter>
+    <>
+      <BrowserRouter>
+        <Navbar cartCount={cart.length} />
+        <Routes>
+          <Route path="/" element={<HomeIndex addToCart={addToCart} />} />
+          <Route path="/cart" element={<Cart cartItems={cart} updateCart={updateCart} removeCart={removeCart} />} />
+          <Route path="/product/:id" element={<ProductDetail addToCart={addToCart} />} />
+          <Route path='/checkout' element={<Checkout cartItems={cart} />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+
+    </>
+
   );
 }
 
